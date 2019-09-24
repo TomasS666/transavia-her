@@ -74,25 +74,23 @@ window.onload = function(){
 
    articleParent.addEventListener('click', (e)=>{
       // e.stopPropagation();
-      var element = e.target.parentNode;
+      var element = e.target;
       console.log(element)
       if(element.tagName.toLowerCase() == "button"){
-         element.addEventListener('click', startDownload)
+         element.addEventListener('click', startDownload);
+         element.click();
+         console.log('fef');
       }
-   }, true)
+   })
+   var downloads = 0;
 
    function startDownload(e){
       console.log(`${e.target} ${this}  test`);
       var counter = 0;
+      
+      var note = document.querySelectorAll('li a span[data-display="counter"]');
 
       var button = this;
-
-      var counterDisplay = this.querySelector('.counter');
-      // console.log(counterDisplay)
-
-      var c = this.querySelector('canvas');
-      var ctx = c.getContext("2d");
-      var progress = -.5;
 
       timesClicked++;
       console.log(timesClicked);
@@ -100,44 +98,42 @@ window.onload = function(){
       function circleUp(){
 
          button.classList.add("intermediate");
-         if(progress < 1.5 ){
-
-            if(counter < 100){
-               counter++;
-               counterDisplay.textContent = counter + "%";
-            }
+ 
+         var test = setInterval(function(){
+            counter++;
+            console.log(counter)
 
             if (counter == 100){
+
                button.classList.remove("intermediate");
                button.classList.add("active");
-               counterDisplay.textContent = "Verwijder";
-               clearInterval(intervalID);
+               // counterDisplay.textContent = "Verwijder";
+               clearInterval(test);
             }
+         }, 20);
 
-            progress += (2 / 100);
-
-            ctx.beginPath();
-            ctx.strokeStyle = "#00D66B";
-            ctx.lineWidth = 4;
-            ctx.arc(45, 61, 25, -.5 * Math.PI, progress * Math.PI);
-            ctx.stroke();
-            // console.log(progress);
+         if(timesClicked % 2 == 0){
+            clearInterval(test);
          }
+
       }
 
       if(timesClicked % 2 == 0){
-         clearInterval(intervalID);
-         console.log("off " + progress);
+         console.log("off ");
          counter = 0;
-         ctx.clearRect(0, 0, c.width, c.height);
-         counterDisplay.textContent = "Download";
          button.classList.remove("active");
-         // timesClicked = 0;
+         button.classList.remove("intermediate");
       }
 
       else{
+         downloads++;
+         note.forEach((elem)=>{
+            elem.classList.add("counter");
+            elem.textContent = String(downloads);
+         })
+         
          console.log("on");
-         var intervalID = setInterval(circleUp, 20);
+         circleUp();
       }
    }
 };

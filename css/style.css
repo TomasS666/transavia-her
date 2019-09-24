@@ -133,6 +133,7 @@ body > header{
    background-size: cover;
    min-height: 44em;
    position: relative;
+   margin-top: 4rem;
 }
 
 body > header::after{
@@ -146,12 +147,17 @@ body > header::after{
    height: 4em;
    background-position: center bottom;
    background-image: url(../css/images/leesrichting.png);
-   z-index: 99999999999999999999;
+   z-index: 9999;
    background-size: cover;
    background-repeat: no-repeat;
 }
 
 header nav{
+   position: fixed;
+   top:0;
+   left: 0;
+   width: 100%;
+   z-index: 99999;
    display: flex;
    justify-content: flex-end;
    background-color: var(--white);
@@ -177,6 +183,43 @@ header nav ul{
 header nav ul li{
    list-style-type: none;
 }
+
+header nav ul li:nth-of-type(2) a{
+   position: relative;
+}
+
+nav ul li .counter{
+   display: block;
+   opacity: 1;
+   transition: all 2s;
+   display: flex;
+}
+
+span[data-display="counter"]{
+   display: none;
+   width: 2.1rem;
+   height: 2.1rem;
+   border-radius: 50%;
+   background-color: var(--blue);
+   z-index: 99999999999999;
+   justify-content: center;
+   color: var(--white);
+   align-items: center;
+   position: absolute;
+   left: 27px;
+   padding: .2rem;
+   padding: 1rem;
+   top: 17px;
+}
+
+header nav ul li .counter{
+
+}
+/* 
+header nav ul li:nth-of-type(2) a::after{
+   content: '1';
+  
+} */
 
 header nav ul li:nth-of-type(4) a{
    position: relative;
@@ -572,11 +615,16 @@ body > footer nav:nth-of-type(2) > ul li a::before{
 body > footer nav:nth-of-type(1) > ul li a {
    display: flex;
    flex-direction: column;
-   font-size: .7em;
+   font-size: .9rem;
    min-width: 6em;
+   font-weight: bold;
    align-items: center;
    padding: 0 0 .3rem;
    text-decoration: none;
+}
+
+body > footer nav:nth-of-type(1) > ul li:nth-of-type(2) a {
+   position: relative;
 }
 
 body > footer nav:nth-of-type(1) > ul li a img{
@@ -658,13 +706,336 @@ section article header button.download{
    cursor: pointer;
 }
 
+section article header button.download::after{
+   color: var(--green);
+   font-weight: bold;
+}
+
+section article header button.download::after{
+   content: 'Download';
+}
+
+section article header button.download.intermediate::after{
+   content: counter(load);
+   /* counter-increment: 0; */
+   animation-name: count;
+   animation-duration: 2s;
+   /* animation-iteration-count: 100;
+   animation-fill-mode: forwards; */
+}
+
+section article header button.download.active::after{
+   content: 'Verwijder';
+}
+
+@keyframes count{
+
+   0%{
+      counter-increment: load 1;
+   }
+   1%{
+      counter-increment: load 2;
+   }
+   2%{
+      counter-increment: load 3;
+   }
+   3%{
+      counter-increment: load 4;
+   }
+   4%{
+      counter-increment: load 5;
+   }
+   5%{
+      counter-increment: load 6;
+   }
+   6%{
+      counter-increment: load 7;
+   }
+   7%{
+      counter-increment: load 8;
+   }
+   8%{
+      counter-increment: load 9;
+   }
+   9%{
+      counter-increment: load 10;
+   }
+   10%{
+      counter-increment: load 11;
+   }
+   13%{
+      counter-increment: load 12;
+   }
+   14%{
+      counter-increment: load 13;
+   }
+   15%{
+      counter-increment: load 14;
+   }
+   16%{
+      counter-increment: load 15;
+   }
+   17%{
+      counter-increment: load 16;
+   }
+   18%{
+      counter-increment: load 17;
+   }
+   19%{
+      counter-increment: load 18;
+   }
+   20%{
+      counter-increment: load 19;
+   }
+   21%{
+      counter-increment: load 20;
+   }
+   22%{
+      counter-increment: load 21;
+   }
+   23%{
+      counter-increment: load 22;
+   }
+   24%{
+      counter-increment: load 23;
+   }
+   25%{
+      counter-increment: load 24;
+   }
+   26%{
+      counter-increment: load 25;
+   }
+   27%{
+      counter-increment: load 26;
+   }
+   28%{
+      counter-increment: load 27;
+   }
+   29%{
+      counter-increment: load 28;
+   }
+   30%{
+      counter-increment: load 29;
+   }
+   31%{
+      counter-increment: load 30;
+   }
+   32%{
+      counter-increment: load 31;
+   }
+   33%{
+      counter-increment: load 32;
+   }
+   34%{
+      counter-increment: load 33;
+   }
+   35%{
+      counter-increment: load 34;
+   }
+   36%{
+      counter-increment: load 35;
+   }
+   37%{
+      counter-increment: load 36;
+   }
+   38%{
+      counter-increment: load 37;
+   }
+   39%{
+      counter-increment: load 38;
+   }
+   40%{
+      counter-increment: load 39;
+   }
+   41%{
+      counter-increment: load 40;
+   }
+   42%{
+      counter-increment: load 41;
+   }
+   43%{
+      counter-increment: load 42;
+   }
+   44%{
+      counter-increment: load 43;
+   }
+   45%{
+      counter-increment: load 44;
+   }
+   46%{
+      counter-increment: load 45;
+   }
+   47%{
+      counter-increment: load 46;
+   }
+   48%{
+      counter-increment: load 47;
+   }
+   49%{
+      counter-increment: load 48;
+   }
+   50%{
+      counter-increment: load 49;
+   }
+   51%{
+      counter-increment: load 50;
+   }
+   52%{
+      counter-increment: load 51;
+   }
+   53%{
+      counter-increment: load 52;
+   }
+   54%{
+      counter-increment: load 53;
+   }
+   55%{
+      counter-increment: load 54;
+   }
+   56%{
+      counter-increment: load 55;
+   }
+   57%{
+      counter-increment: load 56;
+   }
+   58%{
+      counter-increment: load 57;
+   }
+   59%{
+      counter-increment: load 58;
+   }
+   60%{
+      counter-increment: load 59;
+   }
+   61%{
+      counter-increment: load 60;
+   }
+   62%{
+      counter-increment: load 61;
+   }
+   63%{
+      counter-increment: load 62;
+   }
+   64%{
+      counter-increment: load 63;
+   }
+   65%{
+      counter-increment: load 64;
+   }
+   66%{
+      counter-increment: load 65;
+   }
+   67%{
+      counter-increment: load 66;
+   }
+   68%{
+      counter-increment: load 67;
+   }
+   69%{
+      counter-increment: load 68;
+   }
+   70%{
+      counter-increment: load 69;
+   }
+   71%{
+      counter-increment: load 70;
+   }
+   72%{
+      counter-increment: load 71;
+   }
+   73%{
+      counter-increment: load 72;
+   }
+   74%{
+      counter-increment: load 73;
+   }
+   75%{
+      counter-increment: load 74;
+   }
+   76%{
+      counter-increment: load 75;
+   }
+   77%{
+      counter-increment: load 76;
+   }
+   78%{
+      counter-increment: load 77;
+   }
+   79%{
+      counter-increment: load 78;
+   }
+   80%{
+      counter-increment: load 79;
+   }
+   81%{
+      counter-increment: load 80;
+   }
+   82%{
+      counter-increment: load 81;
+   }
+   83%{
+      counter-increment: load 82;
+   }
+   84%{
+      counter-increment: load 83;
+   }
+   85%{
+      counter-increment: load 84;
+   }
+   86%{
+      counter-increment: load 85;
+   }
+   87%{
+      counter-increment: load 86;
+   }
+   88%{
+      counter-increment: load 87;
+   }
+   89%{
+      counter-increment: load 88;
+   }
+   90%{
+      counter-increment: load 89;
+   }
+   91%{
+      counter-increment: load 90;
+   }
+   92%{
+      counter-increment: load 91;
+   }
+   93%{
+      counter-increment: load 92;
+   }
+   94%{
+      counter-increment: load 93;
+   }
+   95%{
+      counter-increment: load 94;
+   }
+   96%{
+      counter-increment: load 95;
+   }
+   97%{
+      counter-increment: load 96;
+   }
+   98%{
+      counter-increment: load 97;
+   }
+   99%{
+      counter-increment: load 98;
+   }
+   100%{
+      counter-increment: load 99;
+   }
+}
+
 section article header button.download.active{
    background-image: url('../css/images/download-succeed.svg');
    transition: .5s;
    animation-delay: 1.5s;
-   -webkit-animation-delay: 2s;
+   -webkit-animation-delay: 1.25s;
    animation-name: succeed;
-   animation-duration: 1s;
+   animation-duration: .8s;
    animation-fill-mode: forwards;   
 }
 
@@ -678,7 +1049,7 @@ section article header button.download.active{
 }
 
 section article header button.download.intermediate{
-   background-image: url('../css/images/intermediate.svg');
+   background-image: url('../css/images/intermediate.gif');
    transition: .5s;
 }
 
@@ -909,6 +1280,23 @@ section:nth-of-type(7).background{
    section .horizontal-scroll article:nth-last-of-type(2){
       margin-right: 1rem;
    }
+
+   span[data-display="counter"] {
+      display: none;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background-color: var(--blue);
+      z-index: 99999999999999;
+      justify-content: center;
+      color: var(--white);
+      align-items: center;
+      position: absolute;
+      left: 1.2rem;
+      padding: .2rem;
+      padding: 1rem;
+      top: .76rem;
+  }
 }
 
 @media screen and (max-width: 28.6875em /*== 459px == */){
