@@ -78,7 +78,7 @@ window.onload = function(){
       
    var counter = 0;
 // console.log(e.target)
-var button = e.target.parentNode;
+   var button = e.target.parentNode;
 
 var counterDisplay = e.target.nextElementSibling;
 console.log(counterDisplay)
