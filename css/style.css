@@ -1,0 +1,789 @@
+/*
+Theme Name: tomastheme
+Author: Tomas Stolp
+Description: Custom made theme
+Version: 0.0.1
+Tags: custom
+*/
+
+
+/*==============================================================================
+               =================  Colors  ===================
+==============================================================================*/
+
+/*Kleur variabelen aanmaken zodat je makkelijk hier de values kunt veranderen waardoor die kleur
+op alle plekken waar deze is toegepast veranderd*/
+
+:root {
+    --green: #00d66c; /*=== Primary Color Green === */
+    --blue: #2800a0; /*=== Secondairy Color Blue === */
+    --pink: #ff3268; /*=== Secondairy Color Pink === */
+    --light-pink: #f3e5d8;
+
+    /* Shadows */
+
+
+    --superlightgrey: #f7f7f7;
+    --bordergrey: #91a3b7;
+    --white: #fff;
+    --grey: #606060;
+    --darkgrey: #808080;
+    --lightgrey: #d3d3d3;
+    --black: #000;
+    --black-shadow: #00000026;
+}
+
+
+/*==============================================================================
+               =================  Fonts  ===================
+==============================================================================*/
+
+@font-face {
+    font-family: Nexa;
+    src: url(fonts/Nexa_Bold.otf),
+    url(fonts/Nexa_Bold.ttf);
+}
+
+@font-face {
+    font-family: Nexa Light;
+    src: url(fonts/Nexa_Light.otf),
+    url(fonts/Nexa_Light.ttf);
+}
+
+/*==============================================================================
+               =================  Main elements  ===================
+==============================================================================*/
+
+
+*{
+   box-sizing: border-box;
+}
+
+html, body{
+    padding:0;
+    width:100%;
+    height:100%;
+    font-size: 100%;
+    font-family:"Nexa Light", "sans-serif";
+    margin:0;
+}
+
+.test{
+   display: flex;
+   width: 20%;
+   /* justify-content: space-between; */
+   flex-direction: row-reverse;
+}
+
+.star{position: relative;}
+.star::before{
+   /* border-radius: 50%;
+   width: 2rem; 
+   height: 2rem; */
+   /* background-color: grey; */
+   /* color: grey;
+   position: relative; */
+
+   content: '';
+   background-size: contain;
+   position: absolute;
+   background-position: center;
+   /* top: 0; */
+   width: 2rem;
+   /* left: 0; */
+   background-repeat: no-repeat;
+   height: 2rem;
+   fill: grey;
+   background-image: url('images/star.svg');
+}
+
+.star[data-id="1"]:hover::before {
+   /* background-color: red; */
+   color: #ffdb00;
+}
+
+.star:hover ~  .star::before, .star:hover::before{
+   /* color: #ffdb00; */
+   content: '';
+   background-size: contain;
+   position: absolute;
+   background-position: center;
+   top: 0;
+   width: 2rem;
+   left: 0;
+   background-repeat: no-repeat;
+   height: 2rem;
+   background-image: url('images/star.svg');
+}
+
+/* .star-anim{
+   animation: test 3s;
+} */
+
+h1{
+   font-family: "Nexa", "sans-serif";
+   font-size: 2.375rem;
+   margin: 0;
+   line-height: 2.5rem;
+   padding: .75rem 1rem;
+   background-color: var(--white);
+   color: var( --green);
+   border-radius: .75rem .75rem 0 0;
+}
+
+section h2{
+   color: var(--blue);
+   font-family: "Nexa", "sans-serif";
+   text-align: center;
+   margin: 0 0 4rem;
+}
+
+section > figure{
+   margin: 0 1rem;
+}
+
+section figure img{
+   max-width: 100%;
+}
+
+p{
+   line-height: 1.5rem;
+
+}
+
+button{
+      border: none;
+      border-radius: 2rem;
+      padding: .5rem 2em;
+      min-height: 2.5rem;
+      color: var(--white);
+      font-family: "Nexa", "open-sans";
+}
+
+/*==============================================================================
+               =================  Header  ===================
+==============================================================================*/
+
+body > header{
+   width:100%;
+   z-index:9999;
+   overflow-x: hidden;
+   background-image: url(../css/images/banner-background.jpg);
+   background-position: top left;
+   background-repeat: no-repeat;
+   background-size: cover;
+   min-height: 44em;
+   position: relative;
+}
+
+body > header::after{
+   display: block;
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   width: 100%;
+   height: 4em;
+   background-position: center bottom;
+   background-image: url(../css/images/leesrichting.png);
+   z-index: 99999999999999999999;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+header nav{
+   display: flex;
+   justify-content: flex-end;
+   background-color: var(--white);
+   box-shadow: 0 0.3125rem 0.625rem 0 var(--black-shadow);
+}
+
+header nav figure{
+   margin: 0 auto 0 0;
+   padding: .5rem 1rem;
+}
+
+header nav figure a{
+   display: flex;
+   padding: 0;
+   min-height: 100%;
+}
+
+header nav ul{
+   display: flex;
+   margin: 0;
+}
+
+header nav ul li{
+   list-style-type: none;
+}
+
+header nav ul li:nth-of-type(4) a{
+   position: relative;
+}
+
+header nav ul li:nth-of-type(4) a::after{
+   content: '';
+   display: block;
+   position: absolute;
+   right: 0;
+   height: 1.5rem;
+   width: 0.0625rem;
+   background-color: var(--green);
+}
+
+header nav ul li a{
+   color: var(--green);
+   display: inline-block;
+   padding: 1rem 1.5rem;
+   font-weight: bold;
+   text-decoration: none;
+   display: flex;
+   align-items: center;
+   min-height: 100%;
+}
+
+header nav ul li a img{
+   width: 3em;
+   padding: 0 0.5rem 0 0;
+}
+
+header nav ul li a:hover,
+header nav ul li a:focus,
+footer nav ul li a:hover,
+footer nav ul li a:focus{
+   color: var(--blue);
+}
+
+section#banner{
+   margin: 1rem auto;
+   border-radius: .75rem;
+   max-width: 22rem;
+}
+
+form{
+   padding: .75rem 1rem;
+   border-radius: 0 0 .75rem .75rem;
+   background-color: rgba(255, 255, 255, .93);
+}
+
+form input{
+   margin:  0 0 .125rem;
+}
+
+form input:not([name='tussenvoegsel']){
+   width: 100%;
+}
+
+form input[type='text']{
+   min-width: 2em;
+}
+
+fieldset{
+    display: block;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-block-start: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    padding-block-end: 0;
+    min-inline-size: min-content;
+    border: none;
+    border-image: initial;
+}
+
+fieldset:required:focus:valid::after {
+   content: 'Correct!';
+   position: absolute;
+   top: 0;
+   left: 0;
+   font-size: 1.5rem;
+   color: var(--green);
+}
+
+legend{
+   font-family: 'Nexa', "open-sans";
+   color: var(--green);
+}
+
+input[type='text'],
+input[type='number']{
+   border-radius: .5rem;
+   border: .0625rem solid #91a3b7;
+   padding: .5rem;
+   min-height: 2.5rem;
+   font-family: "Nexa light", "open-sans";
+}
+input[type='number']:hover,
+input[type='number']:focus,
+input[type='text']:hover,
+input[type='text']:focus{
+   outline: none;
+   border-color: var(--blue);
+}
+
+input[type="text"]:required:valid{
+   border-color: green;
+}
+
+input[type="text"]:focus:invalid{
+   border-color: red;
+}
+
+p.feedback{
+   line-height: 0;
+   margin: 1rem 0;
+}
+
+section#banner form input[type='submit']{
+   border: none;
+   border-radius: 2rem;
+   padding: .5rem 2em;
+   min-height: 2.5rem;
+   background-color: var(--pink);
+   color: var(--white);
+   font-family: "Nexa", "open-sans";
+   box-shadow: inset 0 -0.1875em 0.0625em hsl(344, 65%, 48%);
+}
+
+section#banner form label{
+   color: var(--black);
+   font-family:"Nexa", "sans-serif";
+   display: block;
+}
+
+section#banner form > fieldset > button{
+   color: var(--green);
+   font-family: "Nexa", "open-sans";
+   border: none;
+   border-radius: 0;
+   padding: 1rem 0;
+   background-color: #fff0;
+   min-height: unset;
+}
+
+/*==============================================================================
+               =================  Main content  ===================
+==============================================================================*/
+
+body > main{
+   overflow-x: hidden;
+   max-width: 72rem;
+   margin: 0rem auto 5em;
+   background-color: var(--white);
+}
+
+body > footer{
+   height: 21em;
+   border-top: 11px solid var(--green);
+}
+
+body > footer > nav:nth-of-type(1){
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+   background-color: var(--white);
+   border-top: 1px var(--green) solid;
+   display: flex;
+   align-items: center;
+   z-index: 99999999999;
+   width: 100%;
+}
+
+body > footer nav:nth-of-type(1) > ul{
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+}
+
+body > footer nav ul{
+   padding: 0;
+   margin: 0;
+}
+
+body > footer nav ul li{
+   list-style-type: none;
+}
+
+body > footer nav:nth-of-type(2){
+   max-width: 72rem;
+   padding: 0 4rem;
+}
+
+body > footer nav:nth-of-type(2) > ul li a{
+   color: var(--blue);
+   line-height: 1.5rem;
+   font-family: "Nexa", "open-sans";
+}
+
+body > footer nav:nth-of-type(1) > ul li a {
+   display: flex;
+   flex-direction: column;
+   font-size: .7em;
+   min-width: 6em;
+   align-items: center;
+   padding: 0 0 .3rem;
+   text-decoration: none;
+}
+
+body > footer nav:nth-of-type(1) > ul li a img{
+   width: 4em;
+   height: 5em;
+}
+
+/* Voor het horizontaal scrollen van de articles. Verdere toelichting op de html pagina */
+.horizontal-scroll{
+   /* display: flex; */
+   /* flex-wrap: nowrap; */
+   /* overflow-x: scroll;
+   scroll-snap-type: x mandatory;
+   scroll-snap-points-x: repeat(100%);
+  scroll-snap-points-y: repeat(100%);
+  scroll-snap-destination: 0 0; */
+
+  
+}
+
+header .horizontal-scroll{
+   max-width: 19em;
+   margin-bottom: 1rem;
+}
+
+header .horizontal-scroll button{
+   padding: 0 2em;
+   min-height: unset;
+   background-color: var(--blue);
+   margin-right: .5rem;
+}
+
+header .horizontal-scroll button:nth-of-type(1){
+   color: var(--blue);
+   background-color: var(--white);
+   border: 1px solid var(--blue);
+}
+
+section{
+   padding: 1rem;
+}
+
+section:nth-of-type(n + 3){
+    background-color: var(--light-pink);
+}
+
+section article{
+   scroll-snap-align: center;
+   scroll-snap-stop: always;
+   
+   width: 85vw;
+   flex: 0 0 auto;
+   margin: 0 1rem 3rem 0;
+   border-radius: 0.75rem;
+   border: solid 1px grey;
+   max-width: 20rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+section article header{
+   display: grid;
+   grid-template-columns: auto auto auto auto auto auto auto auto;
+}
+
+section article header button.download{
+   border: none;
+   border-radius: unset;
+   padding: unset;
+   min-height: unset;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   grid-column: 8/9;
+   background-color: unset;
+   outline: none;
+   margin:.5rem 0 0;
+   width: 2rem;
+   height: 3.5rem;
+   cursor: pointer;
+}
+
+section article header button.download.active{
+   background-image: url('../css/images/download-active.svg');
+   transition: .5s;
+}
+
+section article header button.download {
+    border-radius: 50%;
+    background-image: url(../css/images/download.svg);
+    background-size: 2.5rem;
+    background-position: top center;
+    background-repeat: no-repeat;
+    transition: .5s;
+    width: 3.5rem;
+    height: 3.5rem;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+section article header button.download .counter{
+   font-family: sans-serif;
+   color: var(--green);
+   font-size: 0.75rem;
+}
+
+section article header figure{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+   grid-column: 3/7;
+}
+
+section article > figure{
+   overflow: hidden;
+   margin: 0 -0.0625rem;
+}
+
+section article > figure img{
+   padding: .5rem;
+   border: var(--green) solid;
+}
+
+section article > figure figcaption{
+   padding: 1rem;
+   min-height: 10em;
+   background-color: var(--superlightgrey);
+   border-top: 0.0008em solid lightgrey;
+   margin: 0 0.0625rem;
+}
+
+section article header h3{
+   font-family: "Nexa";
+   color: var(--white);
+   font-size: 1.25rem;
+   background-color: var(--green);
+   padding: 1.25rem 1rem;
+   border-radius: .75rem 0 .75rem 0;
+   box-sizing: border-box;
+   margin: -0.0625rem calc(0rem + -0.0625rem) 0rem;
+   grid-column: 1 / 7;
+}
+
+section article header figure span{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+section article header figure{
+   margin: 0.75rem;
+}
+
+
+section article header figure span img{
+   width: 1.25em;
+}
+
+section article footer{
+   display: flex;
+   justify-content: center;
+}
+
+section article footer a{
+   background-color: var(--blue);
+   border: none;
+   border-radius: 2rem;
+   padding: 1.25rem 2em;
+   color: var(--white);
+   font-family: "Nexa", "open-sans";
+   text-decoration: none;
+   line-height: 0;
+   margin: -1.25rem 0 1em;
+   box-shadow: inset 0 -0.1875em 0.0625em hsla(0, 0%, 0%, 0.74);
+}
+
+
+
+
+
+
+
+
+
+
+section.background{
+   background-size: 40%;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-attachment: fixed;
+   height: 90vh;
+   transform: translatez(0);
+}
+
+section[id^="part-"]{
+   padding: 4rem 1.5rem;
+}
+
+section[id^="part-"],
+section.background{
+   background-color: var(--white);
+}
+
+section:nth-of-type(1).background{
+   background-image: url(../css/images/Western1.jpg);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+section:nth-of-type(1).background p{
+   margin-top: 12rem;
+   animation: blink;
+   font-size: 1.25rem;
+   animation-duration: 2s;
+   animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+   0%{
+      opacity: 0;
+   }
+
+   50%{
+      opacity: 1;
+   }
+
+   100%{
+      opacity: 0;
+   }
+}
+
+section:nth-of-type(3).background{
+   background-image: url(../css/images/Western2.jpg);
+}
+
+section:nth-of-type(5).background{
+   background-image: url(../css/images/Western3.jpg);
+}
+
+section:nth-of-type(7).background{
+   background-image: url(../css/images/Western4.jpg);
+}
+
+.wrap{
+   display: grid;
+   position: fixed;
+   width: fit-content;
+   grid-template-columns: auto auto;
+   transform: rotate(45deg);
+   top: 10em;
+   left: 44%;
+   z-index: 99;
+}
+
+.wrap a{
+   display: inline-block;
+   background: red;
+   width: 3.5em;
+   height: 3.5em;
+}
+
+
+
+
+
+
+/*==============================================================================
+      ======================  MEDIA QUERIES  =============================
+==============================================================================*/
+
+@media screen and (min-width: 67.875em /*== 1086px == */){
+   main .horizontal-scroll{
+      flex-wrap: wrap;
+      transition: 4s;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: space-between;
+   }
+
+   body > footer > nav:nth-of-type(1){
+      display: none;
+   }
+
+}
+
+@media screen and (max-width: 67.875em){
+   header nav ul li:nth-of-type(-n + 4){
+      display: none;
+   }
+
+   section{
+      padding: 0 1rem;
+   }
+
+   main .horizontal-scroll{
+      margin: 0 -1rem;
+   }
+
+   section .horizontal-scroll article:nth-of-type(1){
+      margin-left: 1rem;
+   }
+   section .horizontal-scroll article:nth-last-of-type(2){
+      margin-right: 1rem;
+   }
+}
+
+@media screen and (max-width: 28.6875em /*== 459px == */){
+   section{
+      padding: 0 .5rem;
+   }
+
+    header nav > a:nth-of-type(1), header nav span{
+       display: none;
+   }
+
+   body > footer{
+      height: 30rem;
+   }
+
+   body > footer nav:nth-of-type(2){
+      padding: 0 1.5rem;
+   }
+
+   section.background{
+      background-size: 90%;
+   }
+}
+
+@media screen and (max-width: 24.4375em /*== 391px == */){
+
+   body > header > nav{
+      justify-content: unset;
+   }
+
+   section#banner {
+      margin: 1em;
+   }
+
+   section#banner form{
+      position: relative;
+   }
+
+   main .horizontal-scroll{
+      margin: 0 -.5em;
+   }
+
+   section .horizontal-scroll article:nth-of-type(1){
+      margin-left: .5em;
+   }
+
+   body > footer nav:nth-of-type(2){
+      padding: 0 1rem;
+   }
+}
+
+@media screen and (max-width: 17.6875em){
+   h1{
+      word-break: break-all;
+   }
+}
