@@ -64,36 +64,42 @@ window.onload = function(){
 
 
    // var button = document.querySelectorAll(".download");
-   var downloadButton = document.querySelectorAll("canvas");
-   downloadButton.forEach((elem)=>{
-      elem.addEventListener("click", startDownload);
-   })
-   // downloadButton.addEventListener("click", startDownload);
+   // var downloadButton = document.querySelectorAll("canvas");
+   // downloadButton.forEach((elem)=>{
+   //    elem.addEventListener("click", startDownload);
+   // })
 
-   
-   // counterDisplay = document.querySelector(".counter");
-   // counterDisplay.textContent = "Download";
+   var articleParent = document.querySelector("#bekende-personen .horizontal-scroll");
    var timesClicked = 0;
+
+   articleParent.addEventListener('click', (e)=>{
+      // e.stopPropagation();
+      var element = e.target.parentNode;
+      console.log(element)
+      if(element.tagName.toLowerCase() == "button"){
+         element.addEventListener('click', startDownload)
+      }
+   }, true)
+
    function startDownload(e){
-      
-   var counter = 0;
-// console.log(e.target)
-   var button = e.target.parentNode;
+      console.log(`${e.target} ${this}  test`);
+      var counter = 0;
 
-var counterDisplay = e.target.nextElementSibling;
-console.log(counterDisplay)
-// counterDisplay.textContent = "Download";
-      var c = e.target,
-      ctx = c.getContext("2d");
+      var button = this;
+
+      var counterDisplay = this.querySelector('.counter');
+      // console.log(counterDisplay)
+
+      var c = this.querySelector('canvas');
+      var ctx = c.getContext("2d");
       var progress = -.5;
-
-      
 
       timesClicked++;
       console.log(timesClicked);
 
-
       function circleUp(){
+
+         button.classList.add("intermediate");
          if(progress < 1.5 ){
 
             if(counter < 100){
@@ -102,6 +108,7 @@ console.log(counterDisplay)
             }
 
             if (counter == 100){
+               button.classList.remove("intermediate");
                button.classList.add("active");
                counterDisplay.textContent = "Verwijder";
                clearInterval(intervalID);
@@ -111,8 +118,8 @@ console.log(counterDisplay)
 
             ctx.beginPath();
             ctx.strokeStyle = "#00D66B";
-            ctx.lineWidth = 3;
-            ctx.arc(20, 15, 15, -.5 * Math.PI, progress * Math.PI);
+            ctx.lineWidth = 4;
+            ctx.arc(45, 61, 25, -.5 * Math.PI, progress * Math.PI);
             ctx.stroke();
             // console.log(progress);
          }
@@ -125,6 +132,7 @@ console.log(counterDisplay)
          ctx.clearRect(0, 0, c.width, c.height);
          counterDisplay.textContent = "Download";
          button.classList.remove("active");
+         // timesClicked = 0;
       }
 
       else{

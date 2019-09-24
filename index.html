@@ -8,6 +8,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="icon" type="image/png" href="css/images/favicon-192x192.png" sizes="192x192">
 </head>
 
 <body>
@@ -57,13 +58,15 @@
       <section id="bekende-personen">
          <!-- Ik heb van alles gebrobeerd, maar ben er nog niet uit hoe ik de h2 uit de flex flow kan halen en tegelijkertijd het
           horizontale scrollen van de articles te behouden. Vandaar de div. Maar ik blijf zoeken. -->
-         <h2><a href="bekende-personen.html">Bekende Personen</a></h2>
+          <header>
+            <h2><a href="bekende-personen.html">Bekende Personen ( 15 )</a></h2>
+         </header>
          <div class="horizontal-scroll">
-            <article>
+            <article title="Western">
                <header>
                   <h3>Tomas Stolp</h3>
                   <button class="download" data-title="Western" data-downloaded="true">
-                     <canvas id="myCanvas" width="40" height="40" class="active"></canvas>
+                     <canvas id="myCanvas" width="90" height="90" class="active"></canvas>
                      <span class="counter">Download</span>
                   </button>
                   <figure>
@@ -85,11 +88,11 @@
                   <a href="western.html">Lees Verder</a>
                </footer>
             </article>
-            <article>
+            <article title="">
                <header>
                   <h3>Tomas Stolp</h3>
                   <button class="download">
-                     <canvas class="myCanvas" width="40" height="40"></canvas>
+                     <canvas class="myCanvas" width="90" height="90"></canvas>
                      <span class="counter">Download</span>
                   </button>
                   <figure>
@@ -111,11 +114,11 @@
                   <a href="wester.html">Lees Verder</a>
                </footer>
             </article>
-            <article>
+            <article title="">
                <header>
                   <h3>Tomas Stolp</h3>
                   <button class="download">
-                     <canvas class="myCanvas" width="40" height="40"></canvas>
+                     <canvas class="myCanvas" width="90" height="90"></canvas>
                      <span class="counter">Download</span>
                   </button>
                   <figure>
@@ -126,7 +129,7 @@
                   </figure>
                </header>
                <figure>
-                  <img src="css/images/mywesterncube.jpg" alt="Western wester">
+                  <img src="css/images/verhalen/anouk.jpeg" alt="Western wester">
                   <figcaption>
                      <p>Een stofwolk ontneemt het zicht op de wegrijdende postkoets, die mij net heeft afgezet
                         voor het station van dit door god verlaten prairydorp...</p>
@@ -136,11 +139,11 @@
                   <a href="wester.html">Lees Verder</a>
                </footer>
             </article>
-            <article>
+            <article title="">
                <header>
                   <h3>Tomas Stolp</h3>
                   <button class="download">
-                     <canvas class="myCanvas" width="40" height="40"></canvas>
+                     <canvas class="myCanvas" width="90" height="90"></canvas>
                      <span class="counter">Download</span>
                   </button>
                   <figure>
@@ -151,7 +154,7 @@
                   </figure>
                </header>
                <figure>
-                  <img src="css/images/mywesterncube.jpg" alt="Western wester">
+                  <img src="css/images/verhalen/Thijs.jpeg" alt="Western wester">
                   <figcaption>
                      <p>Een stofwolk ontneemt het zicht op de wegrijdende postkoets, die mij net heeft afgezet
                         voor het station van dit door god verlaten prairydorp...</p>
@@ -161,39 +164,14 @@
                   <a href="western.html">Lees Verder</a>
                </footer>
             </article>
-            <article>
+            <article title="">
                <header>
                   <h3>Tomas Stolp</h3>
                   <button class="download">
-                     <canvas class="myCanvas" width="40" height="40"></canvas>
+                     <canvas class="myCanvas" width="90" height="90"></canvas>
                      <span class="counter">Download</span>
                   </button>
                   <figure>
-                     <span><img src="css/images/star.svg" alt="ster"></span>
-                     <span><img src="css/images/star.svg" alt="ster"></span>
-                     <span><img src="css/images/star.svg" alt="ster"></span>
-                  </figure>
-               </header>
-               <figure>
-                  <img src="css/images/mywesterncube.jpg" alt="Western Verhaal">
-                  <figcaption>
-                     <p>Een stofwolk ontneemt het zicht op de wegrijdende postkoets, die mij net heeft afgezet
-                        voor het station van dit door god verlaten prairydorp...</p>
-                  </figcaption>
-               </figure>
-               <footer>
-                  <a href="western.html">Lees Verder</a>
-               </footer>
-            </article>
-            <article>
-               <header>
-                  <h3>Tomas Stolp</h3>
-                  <button class="download">
-                     <canvas class="myCanvas" width="40" height="40"></canvas>
-                     <span class="counter">Download</span>
-                  </button>
-                  <figure>
-                     <span><img src="css/images/star.svg" alt="ster"></span>
                      <span><img src="css/images/star.svg" alt="ster"></span>
                      <span><img src="css/images/star.svg" alt="ster"></span>
                      <span><img src="css/images/star.svg" alt="ster"></span>
@@ -210,11 +188,36 @@
                   <a href="western.html">Lees Verder</a>
                </footer>
             </article>
-            <article>
+            <article title="">
                <header>
                   <h3>Tomas Stolp</h3>
                   <button class="download">
-                     <canvas id="myCanvas" width="40" height="40"></canvas>
+                     <canvas class="myCanvas" width="90" height="90"></canvas>
+                     <span class="counter">Download</span>
+                  </button>
+                  <figure>
+                     <span><img src="css/images/star.svg" alt="ster"></span>
+                     <span><img src="css/images/star.svg" alt="ster"></span>
+                     <span><img src="css/images/star.svg" alt="ster"></span>
+                     <span><img src="css/images/star.svg" alt="ster"></span>
+                  </figure>
+               </header>
+               <figure>
+                  <img src="css/images/mywesterncube.jpg" alt="Western Verhaal">
+                  <figcaption>
+                     <p>Een stofwolk ontneemt het zicht op de wegrijdende postkoets, die mij net heeft afgezet
+                        voor het station van dit door god verlaten prairydorp...</p>
+                  </figcaption>
+               </figure>
+               <footer>
+                  <a href="western.html">Lees Verder</a>
+               </footer>
+            </article>
+            <article title="">
+               <header>
+                  <h3>Tomas Stolp</h3>
+                  <button class="download">
+                     <canvas id="myCanvas" width="90" height="90"></canvas>
                      <span class="counter"></span>
                   </button>
                   <figure>
@@ -234,11 +237,11 @@
                   <a href="western.html">Lees Verder</a>
                </footer>
             </article>
-            <article>
+            <article title="">
                <header>
                   <h3>Tomas Stolp</h3>
                   <button class="download">
-                     <canvas class="myCanvas" width="40" height="40"></canvas>
+                     <canvas class="myCanvas" width="90" height="90"></canvas>
                      <span class="counter"></span>
                   </button>
                   <figure>
@@ -259,6 +262,7 @@
                </footer>
             </article>
          </div>
+         <footer><h3>Zie ook: ...</h3></footer>
       </section>
    </main>
    <footer>
