@@ -77,63 +77,94 @@ window.onload = function(){
       var element = e.target;
       console.log(element)
       if(element.tagName.toLowerCase() == "button"){
-         element.addEventListener('click', startDownload);
-         element.click();
+         // element.addEventListener('click', startDownload);
+         startDownload(element);
+         // element.click();
          console.log('fef');
       }
    })
    var downloads = 0;
+   var downloaded = [];
 
-   function startDownload(e){
-      console.log(`${e.target} ${this}  test`);
+   function startDownload(target){
+      console.log(`${target.id} ${this}  test`);
       var counter = 0;
       
       var note = document.querySelectorAll('li a span[data-display="counter"]');
 
       var button = this;
 
-      timesClicked++;
-      console.log(timesClicked);
+      // timesClicked++;
+      // console.log(timesClicked);
 
-      function circleUp(){
+      
 
-         button.classList.add("intermediate");
+      function circleUp(target){
+
+         target.classList.add("intermediate");
+         // console.log("haahaha")
  
          var test = setInterval(function(){
             counter++;
+            // console.log('fwefwef')
             console.log(counter)
 
             if (counter == 100){
-
-               button.classList.remove("intermediate");
-               button.classList.add("active");
-               // counterDisplay.textContent = "Verwijder";
                clearInterval(test);
+               console.log("hahahahaha")
+               target.classList.remove("intermediate");
+               target.classList.add("active");
+               
+               // counterDisplay.textContent = "Verwijder";
+               
             }
          }, 20);
 
-         if(timesClicked % 2 == 0){
-            clearInterval(test);
-         }
+         // if(timesClicked % 2 == 0){
+         //    target.classList.remove("intermediate");
+         //    target.classList.remove("active");
+         //    clearInterval(test);
+         // }
 
       }
 
-      if(timesClicked % 2 == 0){
-         console.log("off ");
-         counter = 0;
-         button.classList.remove("active");
-         button.classList.remove("intermediate");
-      }
-
-      else{
-         downloads++;
-         note.forEach((elem)=>{
-            elem.classList.add("counter");
-            elem.textContent = String(downloads);
-         })
+      if(downloaded.includes(target.id)){
+         target.classList.remove("active");
+         target.classList.remove("intermediate");
+         // console.log(target.id)
+         var index = downloaded.indexOf(target.id);
          
-         console.log("on");
-         circleUp();
+         downloaded.splice(index, 1);
+           
+       
+         console.log("if "+ downloaded);
+         // console.log(downloaded)
+         // downloaded.pop(e.target.id);
+            
       }
+      else{
+         // target.classList.add("intermediate");
+         circleUp(target);
+         downloaded.push(target.id);
+         console.log('else '+ downloaded);
+      }
+
+      // if(timesClicked % 2 == 0){
+      //    console.log("off ");
+      //    counter = 0;
+      //    button.classList.remove("active");
+      //    button.classList.remove("intermediate");
+      // }
+
+      // else{
+      //    downloads++;
+      //    note.forEach((elem)=>{
+      //       elem.classList.add("counter");
+      //       elem.textContent = String(downloads);
+      //    })
+         
+      //    console.log("on");
+      //    circleUp();
+      // }
    }
 };
