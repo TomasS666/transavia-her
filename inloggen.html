@@ -1,12 +1,16 @@
 <!-- Created by Tomas Stolp-->
 <!DOCTYPE html>
-<html>
+<html lang="nl">
+
 <head>
    <title>Transavia - Reisverhalen om lekker in weg te dromen</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="icon" type="image/png" href="css/images/favicon-192x192.png" sizes="192x192">
 </head>
+
 <body>
    <header>
       <!-- Eerst gebruikte ik hier een nav > ul > li > a, maar aangezien ik op dit moment meer 1 link is het
@@ -25,25 +29,22 @@
             <li><a href="inloggen.html">Inloggen</a></li>
          </ul>
       </nav>
-      <section id="banner">
+      <section id="inloggen">
          <h1>Inloggen</h1>
          <form action="" method="post" autocomplete="off">
          <p>Log gemakkelijk in met jouw naam en het bijbehorende vluchtnummer</p>
          <legend>Inloggen</legend>
                <fieldset required>
                   <label for="voornaam">Voornaam</label>
-                  <input required placeholder="Typ uw voornaam... bijv: Tomas" id="voornaam" type="text" name="voornaam" value="">
-                  <p class="feedback"></p>
+                  <input id="voornaam" type="text" placeholder="Typ uw voornaam... bijv: Tomas"   name="voornaam" required>
                   <label for="tussenvoegsel">Tussenvoegsel</label>
-                  <input required placeholder="Typ hier uw tussenvoegsel... bijv: de" id="tussenvoegsel" type="text" name="tussenvoegsel" value="">
-                  <p class="feedback"></p>
+                  <input id="tussenvoegsel" type="text" placeholder="Typ hier uw tussenvoegsel... bijv: de" name="tussenvoegsel" required>
                   <label for="achternaam">Achternaam</label>
-                  <input required placeholder="Typ uw achternaam... bijv: Stolp" id="achternaam" type="text" name="achternaam" value="">
-                  <p class="feedback"></p>
+                  <input id="achternaam" type="text" placeholder="Typ uw achternaam... bijv: Stolp"  name="achternaam" required>
                   <label for="vluchtnummer">Vluchtnummer</label>
-                  <input required id="vluchtnummer" type="number" name="vluchtnummer" value="">
-                  <p class="feedback"></p>
-                  <input required type="submit" name="zoek" value="Inloggen">
+                  <input id="vluchtnummer" type="text" placeholder="bijv 1A-XR-44" pattern="[A-Z0-9]{6}" name="vluchtnummer" required maxlength="6">
+                  <span></span>
+                  <input type="submit" name="zoek" value="Inloggen" required>
                </fieldset>
          </form>
       </section>
