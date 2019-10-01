@@ -98,7 +98,7 @@ window.onload = function(){
          if(element.tagName.toLowerCase() == "button"){
             // element.addEventListener('click', startDownload);
             startDownload(element);
-            // element.click();
+            // element.click(); fd
             console.log('fef');
          }
       })
