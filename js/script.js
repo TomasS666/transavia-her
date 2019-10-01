@@ -85,6 +85,9 @@ window.onload = function(){
          
          downloads daarintegen fungeert alleen om het totaal aantal downloads te tellen zodat ik deze kan weergeven bij de
          link naar de download pagina.
+
+         Het enige waar ik geen aandacht aan heb besteed is dat JS single threated is. Je kunt niet 2 verhalen tegelijkertijd
+         downloaden. 
    */
 
    if(document.querySelector("#bekende-personen .horizontal-scroll")){

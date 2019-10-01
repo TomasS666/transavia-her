@@ -725,7 +725,11 @@ section article header button.download.intermediate::after{
 }
 
 section article header button.download.active::after{
-   content: 'Verwijder';
+   /* animation-delay: 1.5s;
+   -webkit-animation-delay: 1.25s; */
+   animation-name: succeed-text;
+   animation-duration: 4s;
+   animation-fill-mode: forwards;  
 }
 
 @keyframes count{
@@ -1039,12 +1043,21 @@ section article header button.download.active{
    animation-fill-mode: forwards;   
 }
 
+@keyframes succeed-text{
+   from{
+      content: 'Succeed';
+   }
+   to{
+      content: 'Verwijder';
+   }
+}
+
 @keyframes succeed{
    from{
       background-image: url('../css/images/download-succeed.svg');
    }
    to{
-      background-image: url('../css/images/download-active.svg');
+      background-image: url('../css/images/delete.svg');
    }
 }
 
@@ -1117,7 +1130,6 @@ section article header figure span{
 section article header figure{
    margin: 0.75rem;
 }
-
 
 section article header figure span img{
    width: 1.25em;
