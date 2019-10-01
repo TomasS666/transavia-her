@@ -92,7 +92,7 @@ window.onload = function(){
 
    if(document.querySelector("#bekende-personen .horizontal-scroll")){
       var articleParent = document.querySelector("#bekende-personen .horizontal-scroll");
-      var timesClicked = 0;
+      // var timesClicked = 0;
 
       articleParent.addEventListener('click', (e)=>{
          // e.stopPropagation();
