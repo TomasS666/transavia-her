@@ -816,20 +816,19 @@ section article header button.download::after{
 }
 
 section article header button.download.intermediate::after{
-   content: counter(load);
-   /* counter-increment: 0; */
+   content: counter(load)"%";
    animation-name: count;
    animation-duration: 2s;
-   /* animation-iteration-count: 100;
-   animation-fill-mode: forwards; */
 }
 
 section article header button.download.active::after{
    /* animation-delay: 1.5s;
    -webkit-animation-delay: 1.25s; */
    animation-name: succeed-text;
-   animation-duration: 4s;
-   animation-fill-mode: forwards;  
+   animation-duration: 1s;
+   animation-fill-mode: forwards;
+   content: 'Succeed';
+   animation-delay: 1s;
 }
 
 @keyframes count{
@@ -1144,11 +1143,18 @@ section article header button.download.active{
 }
 
 @keyframes succeed-text{
-   from{
+   0%{
       content: 'Succeed';
+      opacity: 1;
    }
-   to{
+
+   40%{
+      opacity: 0;
+   }
+
+   100%{
       content: 'Verwijder';
+      opacity: 1;
    }
 }
 
@@ -1375,6 +1381,10 @@ section:nth-of-type(7).background{
 }
 
 @media screen and (max-width: 67.875em){
+   input[name='tussenvoegsel']{
+      width: 100%;
+   }
+
    header nav ul li:nth-of-type(-n + 4){
       display: none;
    }
