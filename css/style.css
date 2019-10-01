@@ -470,12 +470,24 @@ input[type="radio"].star:hover::after{
    height: 3rem;
    background-color: var(--lightgrey);
    border-radius: 50%;
-   animation: social .75s;
-   animation-fill-mode: forwards;
-   background-image: url('images/user.jpg');
    background-repeat: no-repeat;
    background-size: contain;
 }
+
+input[type="radio"].star:hover::before{
+   animation: social .75s;
+   animation-fill-mode: forwards;
+   background-image: url('images/user.jpg');
+}
+
+input[type="radio"].star:hover::after{
+   animation-name: social, collapse;
+   animation-duration: .75s, .75s;
+   /* animation-delay: .75s, 0s; */
+   animation-fill-mode: forwards;
+   background-image: url('images/bas.jpg');
+}
+
 input[type="radio"].star:checked::before,
 input[type="radio"].star:checked::after{
    content: '';
@@ -537,6 +549,20 @@ input[type="radio"].star:hover::after{
    100%{
       opacity: 1;
       transform: translateY(-3rem);
+   }
+}
+
+@keyframes collapse{
+   0%{
+      transform: translate(0rem, 0rem);
+   }
+
+   50%{
+      transform: translate(0rem, -3rem);
+   }
+   100%{
+      opacity: 1;
+      transform: translate(3rem, -3rem);
    }
 }
 
@@ -1361,8 +1387,8 @@ section:nth-of-type(7).background{
       padding: 0 .5rem;
    }
 
-    header nav > a:nth-of-type(1), header nav span{
-       display: none;
+   header nav > a:nth-of-type(1), header nav span{
+      display: none;
    }
 
    body > footer{
