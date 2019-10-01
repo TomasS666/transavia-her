@@ -112,7 +112,7 @@ window.onload = function(){
          console.log(`${target.id} ${this}  test`);
          var counter = 0;
          
-         // var note = document.querySelectorAll('li a span[data-display="counter"]');
+         var note = document.querySelectorAll('li a span[data-display="counter"]');
 
          // var button = this;
 
@@ -164,6 +164,16 @@ window.onload = function(){
             downloaded.push(target.id);
             downloads++;
             console.log('else '+ downloaded);
+
+            note.forEach((elem)=>{
+               setInterval(()=>{
+                     elem.classList.remove("counter");
+                     elem.classList.add("counter");
+                     elem.textContent = String(downloads);
+                  }, 4000)
+               // elem.classList.add("counter");
+               // elem.textContent = String(downloads);
+            })
          }
 
          // if(timesClicked % 2 == 0){
