@@ -714,12 +714,12 @@ body > footer nav:nth-of-type(1) > ul li a img{
    grid-template-columns: repeat(12, 22rem);
    grid-template-rows: minmax(150px, 1fr);
    overflow-x: scroll;
+
+   */
    scroll-snap-type: x mandatory;
    scroll-snap-points-x: repeat(100%);
    scroll-snap-points-y: repeat(100%);
    scroll-snap-destination: 0 0;
-   */
-
    flex-wrap: wrap; 
    transition: 4s;
    overflow-x: hidden;
