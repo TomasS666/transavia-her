@@ -109,18 +109,8 @@ window.onload = function(){
       var downloaded = [];
       var note = document.querySelectorAll('li a span[data-display="counter"]');
       function startDownload(target){
-
-         
-
-         
          console.log(`${target.id} ${this}  test`);
          var counter = 0;
-         
-      
-         // var button = this;
-
-         // timesClicked++;
-         // console.log(timesClicked);
 
          function circleUp(target){
 
