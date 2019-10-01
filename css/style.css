@@ -1449,9 +1449,6 @@ section:nth-of-type(7).background{
    section.background{
       background-size: 90%;
    }
-}
-
-@media screen and (max-width: 24.4375em /*== 391px == */){
 
    body > header{
       margin-top: 0;
@@ -1461,6 +1458,11 @@ section:nth-of-type(7).background{
       justify-content: unset;
       position: static;
    }
+}
+
+@media screen and (max-width: 24.4375em /*== 391px == */){
+
+   
 
    section#banner,
    section#inloggen{
@@ -1489,4 +1491,6 @@ section:nth-of-type(7).background{
    h1{
       word-break: break-all;
    }
+
+  
 }
