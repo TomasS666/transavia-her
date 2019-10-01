@@ -105,15 +105,18 @@ window.onload = function(){
             console.log('fef');
          }
       })
-      var downloads = 0;
+      var downloads = 1;
       var downloaded = [];
-
+      var note = document.querySelectorAll('li a span[data-display="counter"]');
       function startDownload(target){
+
+         
+
+         
          console.log(`${target.id} ${this}  test`);
          var counter = 0;
          
-         var note = document.querySelectorAll('li a span[data-display="counter"]');
-
+      
          // var button = this;
 
          // timesClicked++;
@@ -138,61 +141,44 @@ window.onload = function(){
                }
             }, 20);
 
-            // if(timesClicked % 2 == 0){
-            //    target.classList.remove("intermediate");
-            //    target.classList.remove("active");
-            //    clearInterval(test);
-            // }
-
          }
 
          if(downloaded.includes(target.id)){
             target.classList.remove("active");
             target.classList.remove("intermediate");
-            // console.log(target.id)
 
             var index = downloaded.indexOf(target.id);
             downloaded.splice(index, 1);
+            console.log("count = " + downloaded.length)
+
+            if(downloaded.length == 0){
+               console.log("empty")
+               note.forEach((elem)=>{
+                  elem.classList.remove("counter");
+               })
+            }else{
+               downloads = downloaded.length;
+               note.forEach((elem)=>{
+                  elem.textContent = String(downloads);
+               })
+            }
          
-            console.log("if "+ downloaded);
-            // console.log(downloaded)
-            // downloaded.pop(e.target.id);        
+            console.log("if "+ downloaded);  
          }
          else{
-            // target.classList.add("intermediate");
             circleUp(target);
             downloaded.push(target.id);
-            downloads++;
+            downloads = downloaded.length;
             console.log('else '+ downloaded);
 
             note.forEach((elem)=>{
-               setInterval(()=>{
-                     elem.classList.remove("counter");
+               setTimeout(()=>{
+                  console.log("shit")
                      elem.classList.add("counter");
                      elem.textContent = String(downloads);
-                  }, 4000)
-               // elem.classList.add("counter");
-               // elem.textContent = String(downloads);
+                  }, 3300)
             })
          }
-
-         // if(timesClicked % 2 == 0){
-         //    console.log("off ");
-         //    counter = 0;
-         //    button.classList.remove("active");
-         //    button.classList.remove("intermediate");
-         // }
-
-         // else{
-         //    downloads++;
-         //    note.forEach((elem)=>{
-         //       elem.classList.add("counter");
-         //       elem.textContent = String(downloads);
-         //    })
-            
-         //    console.log("on");
-         //    circleUp();
-         // }
       }
    };
 }
